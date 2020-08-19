@@ -3762,7 +3762,7 @@ get "/api/v1/storyboards/:id" do |env|
     end_time = storyboard[:interval].milliseconds
 
     storyboard[:storyboard_count].times do |i|
-      url = storyboard[:url].gsub("$M", i).gsub("https://i9.ytimg.com", HOST_URL)
+      url = storyboard[:url].gsub("$M", i).gsub(/https:\/\/i[0-9]*.ytimg.com/, HOST_URL)
 
       storyboard[:storyboard_height].times do |j|
         storyboard[:storyboard_width].times do |k|
